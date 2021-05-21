@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>window-moveTo</title>
+<script>
+    
+</script>
+</head>
+<body>
+   <h2>윈도우 열고 이동시키기</h2>
+    <button onclick="openwin()">윈도우 열기(window.open)</button>
+    <button onclick="moveToWin()">윈도우 이동(window.moveTo)</button>
+<script>
+    window.document.write("<hr>");
+    document.write("<p>현재 메인 윈도우</p>");
+    var myWindow;
+    function openwin(){
+        //alert("openwin() 실행");
+        myWindow = window.open("", "myWindow","width=200, height=100");
+        //document.write("<h2>새로 열린 윈도우</h2>");
+        myWindow.document.write("<h2>새로 열린 윈도우</h2>");
+    }
+    function moveToWin(){
+        myWindow.moveTo(300, 100); //left, top
+        //myWindow.moveTo(1920+300, 100); //left, top //보조모니터 쓸 경우
+        myWindow.focus();
+    }
+</script>
+</body>
+</html>

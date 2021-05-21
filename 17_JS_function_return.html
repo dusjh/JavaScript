@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> JS : function return </title>
+  <script>
+      //리턴값이 있는 함수(function)
+      //function 함수명(파라미터) {return 리턴값;}
+      function plus(a,b) {
+          return a + b;
+      }
+      let sum = plus(100, 200);
+      document.write("plus(100,200): "+sum,"<br>");
+      document.write("plus(200,300): "+plus(200,300),"<br>");
+      document.write("<hr>");
+
+      //----------------------------------------
+      //function은 중복선언(동일이름) 마지막 선언된 함수가 사용됨
+      function test() {
+          document.write("-->> test() 함수 실행<br>");
+      }
+      test();
+
+      function test() {
+        document.write("-->> test() 함수 재정의 실행<br>");
+      }
+
+      function test(param) {
+        document.write("-->> test(param) 함수 실행: "+param+"<br>");   //param에 값이 없으면 undefined
+      }
+      test("홍길동");      //param에 "홍길동" 값 전달
+      document.write("<hr>");
+
+    // 함수명과 동일한 이름으로 변수 선언시 함수는 사용할 수 없게 됨
+       document.write("test: "+test,"<br>");
+
+       var test = "홍길동";   //함수가 아니게 됨
+       document.write("test: "+test,"<br>");
+
+       //test("김유신");  //에러: test is not a function
+
+       document.write("------------- JS 끝");   //위에 오류가 있으므로 출력 안됨
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

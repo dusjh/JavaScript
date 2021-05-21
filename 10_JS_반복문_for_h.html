@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS: for</title>
+  <script>
+    document.write("<h1>Header h1</h1>");
+    document.write("<h2>Header h2</h2>");
+    document.write("<hr>");
+
+    //반복문을 이용해서 h1~h6 태그 생성
+    for (let i=1; i<=6; i++) {
+      document.write("<h"+i+"> for문으로 만든 제목 h"+i+"</h"+i+">");
+    }
+    document.write("<hr>");
+
+    let htmlTags = "";
+    for (let i=1; i<=6; i++) {
+      htmlTags += "<h"+i+"> for문으로 만든 제목 h"+i+"</h"+i+">";
+    }
+    alert(htmlTags);
+    document.write(htmlTags);
+  </script>
+</head>
+<body>
+  <hr><hr>
+   <h1>제목 h1</h1>
+   <h2>제목 h2</h2>
+   <hr>
+   <h1> for문으로 만든 제목 h1</h1><h2> for문으로 만든 제목 h2</h2><h3> for문으로 만든 제목 h3</h3>
+   <h4> for문으로 만든 제목 h4</h4><h5> for문으로 만든 제목 h5</h5><h6> for문으로 만든 제목 h6</h6>
+
+
+
+</body>
+</html>

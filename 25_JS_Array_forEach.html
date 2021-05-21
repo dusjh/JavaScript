@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset = "UTF-8">
+   <title>Array forEach</title>
+   <script>
+      /*배열 Array의 forEach메소드
+        배열.forEach(콜백함수)
+        배열.forEach(function(element, indexm array){});
+        -첫번째 파라미터(element): 배열요소(필수)
+        -두번째 파라미터(index): 인덱스번호(선택사항)
+        -세번째 파라미터(array): 배열객체(선택사항)
+        */
+        var arr = ["사당", "교대", "방배", "강남"];
+        document.write("arr: "+arr, "<br>");
+        arr.forEach(function(element){
+            document.write(element, "<br>");
+        });
+        document.write("arr: "+arr,"<br>");
+        document.write("<hr>");
+
+        //배열요소(인덱스)와 인덱스 사용
+        document.write("실행전 arr: "+arr,"<br>");
+        arr.forEach(function(element, index){
+            arr[index] = element + "역";
+        });
+        document.write(">>forEach실행 후 arr: "+arr,"<br>");
+        document.write("<hr>");
+
+        //배열.forEach(function(element, index, array){});
+        document.write("실행전 arr: "+arr,"<br>");
+        arr.forEach(function(ele, idx, arrObj){
+            arrObj[idx]=  ele+idx;
+        });
+        document.write(">>forEach실행 후 arr: "+arr,"<br>");
+        document.write("<hr>");
+
+        //=======================================================
+        document.write("원본 arr: "+arr, "<br>");
+        //콜백 함수로 사용할 함수를 선언 
+        function arrCallback(element, index, array) {
+            array[index] = index + "-"+element;
+        }
+        arr.forEach(arrCallback);
+        document.write(">>forEach실행 후 arr: "+arr,"<br>");
+        document.write("<hr><hr>");
+
+
+
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

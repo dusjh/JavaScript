@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> 마우스 관련 이벤트 </title>
+  <script>
+      //마우스 이벤트
+      //onmouseover: 마우스가 해당 영역으로 들어오면 발생(위에 있으면)
+      //onmouseout: 마우스가 해당 영역에서 벗어나면 발생(나가면)
+      window.onload = function() {
+        var imgbtn = document.getElementById('imgbtn');
+        //이벤트 속성에 콜백함수 등록
+        /*
+        imgbtn.onmouseover = function() {
+            imgbtn.firstElementChild.src = "image/btn2_yellow.png";
+        };
+        imgbtn.onmouseout = function(){
+            imgbtn.firstElementChild.src = "image/btn2_gray.png";
+        }; 
+        */
+        //-----------------
+        //addEventListener: 이벤트 중복 설정 가능
+        //addEventListener("이벤트명", 콜백함수);
+        //removeEventListener("이벤트명");
+        imgbtn.addEventListener("mouseover", function() {
+            imgbtn.firstElementChild.src = "image/btn2_yellow.png";
+        });
+        imgbtn.addEventListener("mouseout", changeGray);
+       function changeGray(){
+            imgbtn.firstElementChild.src = "image/btn2_gray.png";
+        }
+        imgbtn.removeEventListener("mouseout", changeGray);
+      };
+  </script>
+  <style>
+      #btn1, #btn2 {background-color: lemonchiffon;}
+      #btn2:hover {background-color: lightcoral;}
+  </style>
+</head>
+<body>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <hr>
+    <a href="#" id="imgbtn">
+        <img src="image/btn2_gray.png" alt="버튼">
+
+    </a>
+
+</body>
+</html>

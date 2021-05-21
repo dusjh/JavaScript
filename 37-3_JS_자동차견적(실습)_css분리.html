@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> 자동차 견적 </title>
+    <link href="css/car.css" rel="stylesheet" type="text/css">  <!--css 파일 임포트-->
+
+<!--css, js 별도 파일로 분리
+<style>
+    #carZone {
+        width: 600px; 
+        margin: auto;
+        border: 1px solid black;
+    }
+    h1 {text-align: center;}
+    #car {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #car th, #car td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #car thead {
+        background-color: blanchedalmond;
+    }
+    #totalTxt { background-color: blanchedalmond;}
+    #total {
+        border: none;
+        text-align: center;
+        font-size: 1.5em;
+        background-color: darkorange;
+    }
+</style>
+-->
+<script>
+   var initValue = 0;    //차량 기본 가액(옵션 없는)
+   var totalValue = 0;   //차량 가액 + 옵션금액
+   var totalTag;         //합계 금액 표시할 input 객체 저장
+   var opts;             //옵션 태그들(checkbox)
+   window.onload = function() {
+       totalTag = document.getElementById('total');
+       initValue = parseInt(totalTag.value);
+       console.log("initValue: "+initValue);
+
+      //클래스명으로 옵션 대상요소 찾기
+      //방법1
+      //opts = document.getElementsByClassName('opt');
+      //방법2-선택자 사용
+      opts = document.querySelectorAll('.opt');   
+      console.log(opts);
+      console.log("opts.length: "+opts.length);
+
+      //이벤트 연결하기
+      for (let i=0; i<opts.length; i++) {
+        opts[i].onclick = fnComputeTotal;
+      }
+   };
+   //옵션에 체크된 금액을 모두 더하기
+   function fnComputeTotal(){
+        totalValue = initValue;  //기본가액으로 시작
+        console.log("시작 totalValue: "+totalValue);
+        //옵션값 추가
+        for (let optTag of opts) { //이터러블(반복) 객체
+            if(optTag.checked) {
+                totalValue += parseInt(optTag.value);
+            }
+        }
+        console.log("옵션 반영 후 totalValue: "+totalValue);
+        //계산 결과 화면 표시
+        totalTag.value = totalValue;
+   };
+</script>
+
+</head>
+<body>
+<div id="carZone">
+    <h1>자동차 견적</h1>
+    <p><img src="image/car1.jpg" alt="자동차이미지"></p>
+    <table id="car">
+        <colgroup>
+            <col width="50%">
+            <col width="30%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>옵션</th>
+                <th>추가 가격</th>
+                <th>선택 여부</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>인조가죽 시트</td>
+                <td>300000</td>
+                <td>
+                    <input type="checkbox" value="300000" id="opt1" class="opt">   <!--this: 현재 객체 반환-->
+                </td>
+            </tr>
+            <tr>
+                <td>네비게이션</td>
+                <td>400000</td>
+                <td>
+                    <input type="checkbox" value="400000" id="opt2" class="opt">
+                </td>
+            </tr>
+            <tr>
+                <td>썬루프</td>
+                <td>500000</td>
+                <td>
+                    <input type="checkbox" value="500000" id="opt3" class="opt">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="totalTxt">차량금액(옵션 포함)</td>
+                <td colspan="2">
+                    <input type="text" value="20000000" id="total" readonly>   <!--수정할 수 없게 readonly-->
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>

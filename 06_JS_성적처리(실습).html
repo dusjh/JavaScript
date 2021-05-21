@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> JavaScript 성적처리 </title>
+  <script>
+      /* 한 사람의 성적을 입력받아 결과 출력
+      입력값: 이름, 국어, 영어, 수학 점수(화면입력 prompt)
+      계산처리: 총점, 평균
+      결과출력: 브라우저 화면에 결과 출력
+      -------------------------------------
+      이름: 홍길동
+      국어: 100
+      영어: 90
+      수학: 80
+      ------------
+      총점: 270
+      평균: 90.00 (소수점 이하 2자리까지)
+      */
+
+      //-----입력받기
+      //Let: var와 달리 두번 선언하는 것이 불가능하고 재정의는 가능
+      let name = prompt("[prompt] 이름을 입력하세요.");  
+      //alert("이름: "+ name);
+      let kor = prompt("[prompt] 국어점수를 입력하세요.");
+      //alert("국어: "+kor);
+      let eng = prompt("[prompt] 영어점수를 입력하세요.");
+      //alert("영어: "+eng);
+      let math = prompt("[prompt] 수학점수를 입력하세요.");
+      //alert("수학: "+math);
+
+      //-----총점, 평균 계산하기
+      let sum = parseInt(kor)+parseInt(eng)+parseInt(math);
+      alert("총점: "+sum);
+      
+      let avg = (sum / 3).toFixed(2);
+      //avg = parseInt(sum * 100 / 3) / 100;
+      //avg = Math.rount(sum * 100 / 3) / 100;
+      alert("평균: "+avg);
+
+      //-----출력하기      
+      document.write("이름: "+name+"<br>");   
+      document.write("국어: "+kor+"<br>");     
+      document.write("영어: "+eng+"<br>");
+      document.write("수학: "+math+"<br>");
+      document.write("<hr>");
+    
+      document.write("총점: "+ sum+"<br>");
+      document.write("평균: "+avg);
+
+  </script>
+</head>
+<body>
+   <h3>성적 처리 실습</h3>
+
+</body>
+</html>
